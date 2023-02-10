@@ -1,0 +1,1607 @@
+openapi: 3.0.1
+info:
+  title: Store API
+  description: Store API documentation
+  contact: {}
+  license:
+    name: unlicensed
+  version: 0.0.1
+servers:
+- url: http://localhost:8080
+  description: Generated server url
+paths:
+  /api/shopping-carts/{id}:
+    get:
+      tags:
+      - shopping-cart-resource
+      operationId: get_shopping_cart
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ShoppingCartDTO'
+      x-openapi-router-controller: swagger_server.controllers.shopping_cart_resource_controller
+    put:
+      tags:
+      - shopping-cart-resource
+      operationId: update_shopping_cart
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShoppingCartDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ShoppingCartDTO'
+      x-openapi-router-controller: swagger_server.controllers.shopping_cart_resource_controller
+    delete:
+      tags:
+      - shopping-cart-resource
+      operationId: delete_shopping_cart
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+      x-openapi-router-controller: swagger_server.controllers.shopping_cart_resource_controller
+    patch:
+      tags:
+      - shopping-cart-resource
+      operationId: partial_update_shopping_cart
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShoppingCartDTO'
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/ShoppingCartDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ShoppingCartDTO'
+      x-openapi-router-controller: swagger_server.controllers.shopping_cart_resource_controller
+  /api/products/{id}:
+    get:
+      tags:
+      - product-resource
+      operationId: get_product
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProductDTO'
+      x-openapi-router-controller: swagger_server.controllers.product_resource_controller
+    put:
+      tags:
+      - product-resource
+      operationId: update_product
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProductDTO'
+      x-openapi-router-controller: swagger_server.controllers.product_resource_controller
+    delete:
+      tags:
+      - product-resource
+      operationId: delete_product
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+      x-openapi-router-controller: swagger_server.controllers.product_resource_controller
+    patch:
+      tags:
+      - product-resource
+      operationId: partial_update_product
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductDTO'
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/ProductDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProductDTO'
+      x-openapi-router-controller: swagger_server.controllers.product_resource_controller
+  /api/product-orders/{id}:
+    get:
+      tags:
+      - product-order-resource
+      operationId: get_product_order
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProductOrderDTO'
+      x-openapi-router-controller: swagger_server.controllers.product_order_resource_controller
+    put:
+      tags:
+      - product-order-resource
+      operationId: update_product_order
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductOrderDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProductOrderDTO'
+      x-openapi-router-controller: swagger_server.controllers.product_order_resource_controller
+    delete:
+      tags:
+      - product-order-resource
+      operationId: delete_product_order
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+      x-openapi-router-controller: swagger_server.controllers.product_order_resource_controller
+    patch:
+      tags:
+      - product-order-resource
+      operationId: partial_update_product_order
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductOrderDTO'
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/ProductOrderDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProductOrderDTO'
+      x-openapi-router-controller: swagger_server.controllers.product_order_resource_controller
+  /api/product-categories/{id}:
+    get:
+      tags:
+      - product-category-resource
+      operationId: get_product_category
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProductCategoryDTO'
+      x-openapi-router-controller: swagger_server.controllers.product_category_resource_controller
+    put:
+      tags:
+      - product-category-resource
+      operationId: update_product_category
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductCategoryDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProductCategoryDTO'
+      x-openapi-router-controller: swagger_server.controllers.product_category_resource_controller
+    delete:
+      tags:
+      - product-category-resource
+      operationId: delete_product_category
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+      x-openapi-router-controller: swagger_server.controllers.product_category_resource_controller
+    patch:
+      tags:
+      - product-category-resource
+      operationId: partial_update_product_category
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductCategoryDTO'
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/ProductCategoryDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProductCategoryDTO'
+      x-openapi-router-controller: swagger_server.controllers.product_category_resource_controller
+  /api/customer-details/{id}:
+    get:
+      tags:
+      - customer-details-resource
+      operationId: get_customer_details
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CustomerDetailsDTO'
+      x-openapi-router-controller: swagger_server.controllers.customer_details_resource_controller
+    put:
+      tags:
+      - customer-details-resource
+      operationId: update_customer_details
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerDetailsDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CustomerDetailsDTO'
+      x-openapi-router-controller: swagger_server.controllers.customer_details_resource_controller
+    delete:
+      tags:
+      - customer-details-resource
+      operationId: delete_customer_details
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+      x-openapi-router-controller: swagger_server.controllers.customer_details_resource_controller
+    patch:
+      tags:
+      - customer-details-resource
+      operationId: partial_update_customer_details
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerDetailsDTO'
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/CustomerDetailsDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CustomerDetailsDTO'
+      x-openapi-router-controller: swagger_server.controllers.customer_details_resource_controller
+  /api/admin/users:
+    get:
+      tags:
+      - user-resource
+      operationId: get_all_users
+      parameters:
+      - name: page
+        in: query
+        description: Zero-based page index (0..N)
+        required: false
+        style: form
+        explode: true
+        schema:
+          minimum: 0
+          type: integer
+          default: 0
+      - name: size
+        in: query
+        description: The size of the page to be returned
+        required: false
+        style: form
+        explode: true
+        schema:
+          minimum: 1
+          type: integer
+          default: 20
+      - name: sort
+        in: query
+        description: 'Sorting criteria in the format: property,(asc|desc). Default
+          sort order is ascending. Multiple sort criteria are supported.'
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AdminUserDTO'
+                x-content-type: '*/*'
+      x-openapi-router-controller: swagger_server.controllers.user_resource_controller
+    put:
+      tags:
+      - user-resource
+      operationId: update_user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdminUserDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AdminUserDTO'
+      x-openapi-router-controller: swagger_server.controllers.user_resource_controller
+    post:
+      tags:
+      - user-resource
+      operationId: create_user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdminUserDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/User'
+      x-openapi-router-controller: swagger_server.controllers.user_resource_controller
+  /api/shopping-carts:
+    get:
+      tags:
+      - shopping-cart-resource
+      operationId: get_all_shopping_carts
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ShoppingCartDTO'
+                x-content-type: '*/*'
+      x-openapi-router-controller: swagger_server.controllers.shopping_cart_resource_controller
+    post:
+      tags:
+      - shopping-cart-resource
+      operationId: create_shopping_cart
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShoppingCartDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ShoppingCartDTO'
+      x-openapi-router-controller: swagger_server.controllers.shopping_cart_resource_controller
+  /api/register:
+    post:
+      tags:
+      - account-resource
+      operationId: register_account
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ManagedUserVM'
+        required: true
+      responses:
+        "201":
+          description: Created
+      x-openapi-router-controller: swagger_server.controllers.account_resource_controller
+  /api/products:
+    get:
+      tags:
+      - product-resource
+      operationId: get_all_products
+      parameters:
+      - name: page
+        in: query
+        description: Zero-based page index (0..N)
+        required: false
+        style: form
+        explode: true
+        schema:
+          minimum: 0
+          type: integer
+          default: 0
+      - name: size
+        in: query
+        description: The size of the page to be returned
+        required: false
+        style: form
+        explode: true
+        schema:
+          minimum: 1
+          type: integer
+          default: 20
+      - name: sort
+        in: query
+        description: 'Sorting criteria in the format: property,(asc|desc). Default
+          sort order is ascending. Multiple sort criteria are supported.'
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: eagerload
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: boolean
+          default: false
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProductDTO'
+                x-content-type: '*/*'
+      x-openapi-router-controller: swagger_server.controllers.product_resource_controller
+    post:
+      tags:
+      - product-resource
+      operationId: create_product
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProductDTO'
+      x-openapi-router-controller: swagger_server.controllers.product_resource_controller
+  /api/product-orders:
+    get:
+      tags:
+      - product-order-resource
+      operationId: get_all_product_orders
+      parameters:
+      - name: eagerload
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: boolean
+          default: false
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProductOrderDTO'
+                x-content-type: '*/*'
+      x-openapi-router-controller: swagger_server.controllers.product_order_resource_controller
+    post:
+      tags:
+      - product-order-resource
+      operationId: create_product_order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductOrderDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProductOrderDTO'
+      x-openapi-router-controller: swagger_server.controllers.product_order_resource_controller
+  /api/product-categories:
+    get:
+      tags:
+      - product-category-resource
+      operationId: get_all_product_categories
+      parameters:
+      - name: page
+        in: query
+        description: Zero-based page index (0..N)
+        required: false
+        style: form
+        explode: true
+        schema:
+          minimum: 0
+          type: integer
+          default: 0
+      - name: size
+        in: query
+        description: The size of the page to be returned
+        required: false
+        style: form
+        explode: true
+        schema:
+          minimum: 1
+          type: integer
+          default: 20
+      - name: sort
+        in: query
+        description: 'Sorting criteria in the format: property,(asc|desc). Default
+          sort order is ascending. Multiple sort criteria are supported.'
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProductCategoryDTO'
+                x-content-type: '*/*'
+      x-openapi-router-controller: swagger_server.controllers.product_category_resource_controller
+    post:
+      tags:
+      - product-category-resource
+      operationId: create_product_category
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductCategoryDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProductCategoryDTO'
+      x-openapi-router-controller: swagger_server.controllers.product_category_resource_controller
+  /api/customer-details:
+    get:
+      tags:
+      - customer-details-resource
+      operationId: get_all_customer_details
+      parameters:
+      - name: page
+        in: query
+        description: Zero-based page index (0..N)
+        required: false
+        style: form
+        explode: true
+        schema:
+          minimum: 0
+          type: integer
+          default: 0
+      - name: size
+        in: query
+        description: The size of the page to be returned
+        required: false
+        style: form
+        explode: true
+        schema:
+          minimum: 1
+          type: integer
+          default: 20
+      - name: sort
+        in: query
+        description: 'Sorting criteria in the format: property,(asc|desc). Default
+          sort order is ascending. Multiple sort criteria are supported.'
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: eagerload
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: boolean
+          default: false
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CustomerDetailsDTO'
+                x-content-type: '*/*'
+      x-openapi-router-controller: swagger_server.controllers.customer_details_resource_controller
+    post:
+      tags:
+      - customer-details-resource
+      operationId: create_customer_details
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerDetailsDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CustomerDetailsDTO'
+      x-openapi-router-controller: swagger_server.controllers.customer_details_resource_controller
+  /api/authenticate:
+    get:
+      tags:
+      - account-resource
+      operationId: is_authenticated
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+                x-content-type: '*/*'
+      x-openapi-router-controller: swagger_server.controllers.account_resource_controller
+    post:
+      tags:
+      - user-jwt-controller
+      operationId: authorize
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginVM'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/JWTToken'
+      x-openapi-router-controller: swagger_server.controllers.user_jwt_controller_controller
+  /api/account:
+    get:
+      tags:
+      - account-resource
+      operationId: get_account
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AdminUserDTO'
+      x-openapi-router-controller: swagger_server.controllers.account_resource_controller
+    post:
+      tags:
+      - account-resource
+      operationId: save_account
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdminUserDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+      x-openapi-router-controller: swagger_server.controllers.account_resource_controller
+  /api/account/reset-password/init:
+    post:
+      tags:
+      - account-resource
+      operationId: request_password_reset
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        "200":
+          description: OK
+      x-openapi-router-controller: swagger_server.controllers.account_resource_controller
+  /api/account/reset-password/finish:
+    post:
+      tags:
+      - account-resource
+      operationId: finish_password_reset
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KeyAndPasswordVM'
+        required: true
+      responses:
+        "200":
+          description: OK
+      x-openapi-router-controller: swagger_server.controllers.account_resource_controller
+  /api/account/change-password:
+    post:
+      tags:
+      - account-resource
+      operationId: change_password
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordChangeDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+      x-openapi-router-controller: swagger_server.controllers.account_resource_controller
+  /api/users:
+    get:
+      tags:
+      - public-user-resource
+      operationId: get_all_public_users
+      parameters:
+      - name: page
+        in: query
+        description: Zero-based page index (0..N)
+        required: false
+        style: form
+        explode: true
+        schema:
+          minimum: 0
+          type: integer
+          default: 0
+      - name: size
+        in: query
+        description: The size of the page to be returned
+        required: false
+        style: form
+        explode: true
+        schema:
+          minimum: 1
+          type: integer
+          default: 20
+      - name: sort
+        in: query
+        description: 'Sorting criteria in the format: property,(asc|desc). Default
+          sort order is ascending. Multiple sort criteria are supported.'
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserDTO'
+                x-content-type: '*/*'
+      x-openapi-router-controller: swagger_server.controllers.public_user_resource_controller
+  /api/authorities:
+    get:
+      tags:
+      - public-user-resource
+      operationId: get_authorities
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  type: string
+                x-content-type: '*/*'
+      x-openapi-router-controller: swagger_server.controllers.public_user_resource_controller
+  /api/admin/users/{login}:
+    get:
+      tags:
+      - user-resource
+      operationId: get_user
+      parameters:
+      - name: login
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          pattern: ^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AdminUserDTO'
+      x-openapi-router-controller: swagger_server.controllers.user_resource_controller
+    delete:
+      tags:
+      - user-resource
+      operationId: delete_user
+      parameters:
+      - name: login
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          pattern: ^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$
+          type: string
+      responses:
+        "200":
+          description: OK
+      x-openapi-router-controller: swagger_server.controllers.user_resource_controller
+  /api/activate:
+    get:
+      tags:
+      - account-resource
+      operationId: activate_account
+      parameters:
+      - name: key
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+      x-openapi-router-controller: swagger_server.controllers.account_resource_controller
+components:
+  schemas:
+    CustomerDetailsDTO:
+      required:
+      - addressLine1
+      - city
+      - country
+      - gender
+      - phone
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        gender:
+          type: string
+          enum:
+          - MALE
+          - FEMALE
+          - OTHER
+        phone:
+          type: string
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        city:
+          type: string
+        country:
+          type: string
+        latitude:
+          type: number
+          format: float
+        longitude:
+          type: number
+          format: float
+        geohash:
+          type: string
+        olc:
+          type: string
+        user:
+          $ref: '#/components/schemas/UserDTO'
+      example:
+        country: country
+        gender: MALE
+        phone: phone
+        city: city
+        latitude: 5.962134
+        geohash: geohash
+        olc: olc
+        addressLine1: addressLine1
+        addressLine2: addressLine2
+        id: 1
+        user:
+          id: 2
+          login: login
+        longitude: 5.637377
+    ShoppingCartDTO:
+      required:
+      - paymentMethod
+      - placedDate
+      - status
+      - totalPrice
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        placedDate:
+          type: string
+          format: date-time
+        status:
+          type: string
+          enum:
+          - COMPLETED
+          - PAID
+          - PENDING
+          - CANCELLED
+          - REFUNDED
+        totalPrice:
+          minimum: 0
+          exclusiveMinimum: false
+          type: number
+        paymentMethod:
+          type: string
+          enum:
+          - CREDIT_CARD
+          - IDEAL
+        paymentReference:
+          type: string
+        customerDetails:
+          $ref: '#/components/schemas/CustomerDetailsDTO'
+      example:
+        totalPrice: 0.6027456183070403
+        paymentReference: paymentReference
+        paymentMethod: CREDIT_CARD
+        id: 0
+        customerDetails:
+          country: country
+          gender: MALE
+          phone: phone
+          city: city
+          latitude: 5.962134
+          geohash: geohash
+          olc: olc
+          addressLine1: addressLine1
+          addressLine2: addressLine2
+          id: 1
+          user:
+            id: 2
+            login: login
+          longitude: 5.637377
+        placedDate: 2000-01-23T04:56:07.000+00:00
+        status: COMPLETED
+    UserDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        login:
+          type: string
+      example:
+        id: 2
+        login: login
+    ProductCategoryDTO:
+      required:
+      - name
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        description:
+          type: string
+      example:
+        name: name
+        description: description
+        id: 1
+    ProductDTO:
+      required:
+      - ean
+      - name
+      - price
+      - productSize
+      - sku
+      - upc
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        sku:
+          type: string
+        upc:
+          type: string
+        ean:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        price:
+          minimum: 0
+          exclusiveMinimum: false
+          type: number
+        productSize:
+          type: string
+          enum:
+          - S
+          - M
+          - L
+          - XL
+          - XXL
+        colors:
+          pattern: ^([a-z]+,)*[a-z]+$
+          type: string
+        image:
+          type: array
+          items:
+            type: string
+            format: byte
+        imageContentType:
+          type: string
+        imageSha1:
+          maxLength: 40
+          minLength: 40
+          pattern: '[a-f0-9]{40}'
+          type: string
+        imageCdnUrl:
+          type: string
+        thumbnailSha1:
+          maxLength: 40
+          minLength: 40
+          pattern: '[a-f0-9]{40}'
+          type: string
+        thumbnailCdnUrl:
+          type: string
+        productCategory:
+          $ref: '#/components/schemas/ProductCategoryDTO'
+      description: Product sold by the Online store
+      example:
+        image:
+        - ""
+        - ""
+        imageCdnUrl: imageCdnUrl
+        productSize: S
+        imageSha1: imageSha1
+        upc: upc
+        description: description
+        colors: colors
+        productCategory:
+          name: name
+          description: description
+          id: 1
+        ean: ean
+        thumbnailCdnUrl: thumbnailCdnUrl
+        price: 0.6027456183070403
+        imageContentType: imageContentType
+        name: name
+        thumbnailSha1: thumbnailSha1
+        id: 0
+        sku: sku
+    ProductOrderDTO:
+      required:
+      - quantity
+      - totalPrice
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        quantity:
+          minimum: 0
+          type: integer
+          format: int32
+        totalPrice:
+          minimum: 0
+          exclusiveMinimum: false
+          type: number
+        product:
+          $ref: '#/components/schemas/ProductDTO'
+        cart:
+          $ref: '#/components/schemas/ShoppingCartDTO'
+      example:
+        product:
+          image:
+          - ""
+          - ""
+          imageCdnUrl: imageCdnUrl
+          productSize: S
+          imageSha1: imageSha1
+          upc: upc
+          description: description
+          colors: colors
+          productCategory:
+            name: name
+            description: description
+            id: 1
+          ean: ean
+          thumbnailCdnUrl: thumbnailCdnUrl
+          price: 0.6027456183070403
+          imageContentType: imageContentType
+          name: name
+          thumbnailSha1: thumbnailSha1
+          id: 0
+          sku: sku
+        quantity: 0
+        totalPrice: 0.14658129805029452
+        id: 0
+        cart:
+          totalPrice: 0.6027456183070403
+          paymentReference: paymentReference
+          paymentMethod: CREDIT_CARD
+          id: 0
+          customerDetails:
+            country: country
+            gender: MALE
+            phone: phone
+            city: city
+            latitude: 5.962134
+            geohash: geohash
+            olc: olc
+            addressLine1: addressLine1
+            addressLine2: addressLine2
+            id: 1
+            user:
+              id: 2
+              login: login
+            longitude: 5.637377
+          placedDate: 2000-01-23T04:56:07.000+00:00
+          status: COMPLETED
+    AdminUserDTO:
+      required:
+      - login
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        login:
+          maxLength: 50
+          minLength: 1
+          pattern: ^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$
+          type: string
+        firstName:
+          maxLength: 50
+          minLength: 0
+          type: string
+        lastName:
+          maxLength: 50
+          minLength: 0
+          type: string
+        email:
+          maxLength: 254
+          minLength: 5
+          type: string
+        imageUrl:
+          maxLength: 256
+          minLength: 0
+          type: string
+        activated:
+          type: boolean
+        langKey:
+          maxLength: 10
+          minLength: 2
+          type: string
+        createdBy:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
+        lastModifiedBy:
+          type: string
+        lastModifiedDate:
+          type: string
+          format: date-time
+        authorities:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+      example:
+        lastName: lastName
+        lastModifiedDate: 2000-01-23T04:56:07.000+00:00
+        lastModifiedBy: lastModifiedBy
+        login: login
+        authorities:
+        - authorities
+        - authorities
+        firstName: firstName
+        createdDate: 2000-01-23T04:56:07.000+00:00
+        langKey: langKey
+        createdBy: createdBy
+        imageUrl: imageUrl
+        id: 0
+        email: email
+        activated: true
+    ManagedUserVM:
+      required:
+      - login
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        login:
+          maxLength: 50
+          minLength: 1
+          pattern: ^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$
+          type: string
+        firstName:
+          maxLength: 50
+          minLength: 0
+          type: string
+        lastName:
+          maxLength: 50
+          minLength: 0
+          type: string
+        email:
+          maxLength: 254
+          minLength: 5
+          type: string
+        imageUrl:
+          maxLength: 256
+          minLength: 0
+          type: string
+        activated:
+          type: boolean
+        langKey:
+          maxLength: 10
+          minLength: 2
+          type: string
+        createdBy:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
+        lastModifiedBy:
+          type: string
+        lastModifiedDate:
+          type: string
+          format: date-time
+        authorities:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        password:
+          maxLength: 100
+          minLength: 4
+          type: string
+    LoginVM:
+      required:
+      - password
+      - username
+      type: object
+      properties:
+        username:
+          maxLength: 50
+          minLength: 1
+          type: string
+        password:
+          maxLength: 100
+          minLength: 4
+          type: string
+        rememberMe:
+          type: boolean
+    JWTToken:
+      type: object
+      properties:
+        id_token:
+          type: string
+      example:
+        id_token: id_token
+    User:
+      required:
+      - activated
+      - login
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        login:
+          maxLength: 50
+          minLength: 1
+          pattern: ^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$
+          type: string
+        firstName:
+          maxLength: 50
+          minLength: 0
+          type: string
+        lastName:
+          maxLength: 50
+          minLength: 0
+          type: string
+        email:
+          maxLength: 254
+          minLength: 5
+          type: string
+        activated:
+          type: boolean
+        langKey:
+          maxLength: 10
+          minLength: 2
+          type: string
+        imageUrl:
+          maxLength: 256
+          minLength: 0
+          type: string
+        resetDate:
+          type: string
+          format: date-time
+      example:
+        firstName: firstName
+        lastName: lastName
+        langKey: langKey
+        resetDate: 2000-01-23T04:56:07.000+00:00
+        imageUrl: imageUrl
+        id: 0
+        login: login
+        email: email
+        activated: true
+    KeyAndPasswordVM:
+      type: object
+      properties:
+        key:
+          type: string
+        newPassword:
+          type: string
+    PasswordChangeDTO:
+      type: object
+      properties:
+        currentPassword:
+          type: string
+        newPassword:
+          type: string
+

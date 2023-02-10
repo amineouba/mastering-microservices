@@ -1,0 +1,9 @@
+{
+  "storeApp": {
+    "PaymentMethod": {
+      "null": "",
+      "CREDIT_CARD": "card",
+      "IDEAL": "ideal"
+    }
+  }
+}

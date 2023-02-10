@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="shoppingCart">
+      <h2 data-cy="shoppingCartDetailsHeading"><span jhiTranslate="storeApp.shoppingCart.detail.title">Shopping Cart</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ shoppingCart.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="storeApp.shoppingCart.placedDate">Placed Date</span></dt>
+        <dd>
+          <span>{{ shoppingCart.placedDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="storeApp.shoppingCart.status">Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'storeApp.OrderStatus.' + shoppingCart.status }}">{{ shoppingCart.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="storeApp.shoppingCart.totalPrice">Total Price</span></dt>
+        <dd>
+          <span>{{ shoppingCart.totalPrice }}</span>
+        </dd>
+        <dt><span jhiTranslate="storeApp.shoppingCart.paymentMethod">Payment Method</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'storeApp.PaymentMethod.' + shoppingCart.paymentMethod }}">{{ shoppingCart.paymentMethod }}</span>
+        </dd>
+        <dt><span jhiTranslate="storeApp.shoppingCart.paymentReference">Payment Reference</span></dt>
+        <dd>
+          <span>{{ shoppingCart.paymentReference }}</span>
+        </dd>
+        <dt><span jhiTranslate="storeApp.shoppingCart.customerDetails">Customer Details</span></dt>
+        <dd>
+          <div *ngIf="shoppingCart.customerDetails">
+            <a [routerLink]="['/customer-details', shoppingCart.customerDetails.id, 'view']">{{ shoppingCart.customerDetails.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/shopping-cart', shoppingCart.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

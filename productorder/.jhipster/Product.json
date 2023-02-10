@@ -1,0 +1,101 @@
+{
+  "applications": "*",
+  "changelogDate": "20230125233435",
+  "clientRootFolder": "productorder",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "product",
+  "fields": [
+    {
+      "fieldName": "sku",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "upc",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required", "min"],
+      "fieldValidateRulesMin": "0"
+    },
+    {
+      "fieldName": "productSize",
+      "fieldType": "ProductSize",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "XS,S,M,L,XL,XXL"
+    },
+    {
+      "fieldName": "colors",
+      "fieldType": "String",
+      "fieldValidateRules": ["pattern"],
+      "fieldValidateRulesPattern": "^([a-z]+,)*[a-z]+$"
+    },
+    {
+      "fieldName": "image",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image",
+      "fieldValidateRules": ["maxbytes"],
+      "fieldValidateRulesMaxbytes": "5000000",
+      "javadoc": "For uploading the image"
+    },
+    {
+      "fieldName": "imageSha1",
+      "fieldType": "String",
+      "fieldValidateRules": ["minlength", "maxlength", "pattern"],
+      "fieldValidateRulesMaxlength": "40",
+      "fieldValidateRulesMinlength": "40",
+      "fieldValidateRulesPattern": "[a-f0-9]{40}",
+      "javadoc": "For caching with HTTP header Etag and If-None-Match"
+    },
+    {
+      "fieldName": "imageCdnUrl",
+      "fieldType": "String",
+      "javadoc": "For the content delivery network"
+    },
+    {
+      "fieldName": "thumbnailSha1",
+      "fieldType": "String",
+      "fieldValidateRules": ["minlength", "maxlength", "pattern"],
+      "fieldValidateRulesMaxlength": "40",
+      "fieldValidateRulesMinlength": "40",
+      "fieldValidateRulesPattern": "[a-f0-9]{40}",
+      "javadoc": "For caching with HTTP header Etag and If-None-Match"
+    },
+    {
+      "fieldName": "thumbnailCdnUrl",
+      "fieldType": "String",
+      "javadoc": "For the content delivery network"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "Product sold by the Online store",
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "productorder",
+  "name": "Product",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "productCategory",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "productCategory",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

@@ -1,0 +1,14 @@
+from __future__ import absolute_import
+
+# flake8: noqa
+
+# import apis into api package
+from swagger_client.api.account_resource_api import AccountResourceApi
+from swagger_client.api.customer_details_resource_api import CustomerDetailsResourceApi
+from swagger_client.api.product_category_resource_api import ProductCategoryResourceApi
+from swagger_client.api.product_order_resource_api import ProductOrderResourceApi
+from swagger_client.api.product_resource_api import ProductResourceApi
+from swagger_client.api.public_user_resource_api import PublicUserResourceApi
+from swagger_client.api.shopping_cart_resource_api import ShoppingCartResourceApi
+from swagger_client.api.user_jwt_controller_api import UserJwtControllerApi
+from swagger_client.api.user_resource_api import UserResourceApi

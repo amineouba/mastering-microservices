@@ -1,0 +1,21 @@
+apiVersion: skaffold/v1
+kind: Config
+build:
+  artifacts:
+    - image: koukika/gateway
+      context: ../gateway
+      jib: {}
+    - image: koukika/invoice
+      context: ../invoice
+      jib: {}
+    - image: koukika/notification
+      context: ../notification
+      jib: {}
+    - image: koukika/productorder
+      context: ../productorder
+      jib: {}
+  tagPolicy:
+    envTemplate:
+      template: "{{.IMAGE_NAME}}:latest"
+deploy:
+  kustomize: {}

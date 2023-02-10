@@ -1,0 +1,47 @@
+{
+  "gatewayApp": {
+    "productorderProduct": {
+      "home": {
+        "title": "Products",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Product",
+        "createOrEditLabel": "Créer ou éditer un Product",
+        "notFound": "Aucun Product trouvé"
+      },
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Product {{ id }} ?"
+      },
+      "detail": {
+        "title": "Product"
+      },
+      "id": "ID",
+      "sku": "Sku",
+      "upc": "Upc",
+      "name": "Name",
+      "description": "Description",
+      "price": "Price",
+      "productSize": "Product Size",
+      "colors": "Colors",
+      "image": "Image",
+      "imageSha1": "Image Sha 1",
+      "imageCdnUrl": "Image Cdn Url",
+      "thumbnailSha1": "Thumbnail Sha 1",
+      "thumbnailCdnUrl": "Thumbnail Cdn Url",
+      "productCategory": "Product Category",
+      "help": {
+        "image": "For uploading the image",
+        "imageSha1": "For caching with HTTP header Etag and If-None-Match",
+        "imageCdnUrl": "For the content delivery network",
+        "thumbnailSha1": "For caching with HTTP header Etag and If-None-Match",
+        "thumbnailCdnUrl": "For the content delivery network"
+      }
+    }
+  },
+  "productorderApp": {
+    "productorderProduct": {
+      "created": "Un nouveau Product a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Product avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Product avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

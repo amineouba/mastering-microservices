@@ -1,0 +1,1606 @@
+openapi: 3.0.1
+info:
+  title: Store API
+  description: Store API documentation
+  contact: {}
+  license:
+    name: unlicensed
+  version: 0.0.1
+servers:
+- url: http://localhost:8080
+  description: Generated server url
+paths:
+  /api/shopping-carts/{id}:
+    get:
+      tags:
+      - shopping-cart-resource
+      operationId: getShoppingCart
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ShoppingCartDTO'
+      x-swagger-router-controller: ShoppingCartResource
+    put:
+      tags:
+      - shopping-cart-resource
+      operationId: updateShoppingCart
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShoppingCartDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ShoppingCartDTO'
+      x-swagger-router-controller: ShoppingCartResource
+    delete:
+      tags:
+      - shopping-cart-resource
+      operationId: deleteShoppingCart
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+      x-swagger-router-controller: ShoppingCartResource
+    patch:
+      tags:
+      - shopping-cart-resource
+      operationId: partialUpdateShoppingCart
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShoppingCartDTO'
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/ShoppingCartDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ShoppingCartDTO'
+      x-swagger-router-controller: ShoppingCartResource
+  /api/products/{id}:
+    get:
+      tags:
+      - product-resource
+      operationId: getProduct
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProductDTO'
+      x-swagger-router-controller: ProductResource
+    put:
+      tags:
+      - product-resource
+      operationId: updateProduct
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProductDTO'
+      x-swagger-router-controller: ProductResource
+    delete:
+      tags:
+      - product-resource
+      operationId: deleteProduct
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+      x-swagger-router-controller: ProductResource
+    patch:
+      tags:
+      - product-resource
+      operationId: partialUpdateProduct
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductDTO'
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/ProductDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProductDTO'
+      x-swagger-router-controller: ProductResource
+  /api/product-orders/{id}:
+    get:
+      tags:
+      - product-order-resource
+      operationId: getProductOrder
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProductOrderDTO'
+      x-swagger-router-controller: ProductOrderResource
+    put:
+      tags:
+      - product-order-resource
+      operationId: updateProductOrder
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductOrderDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProductOrderDTO'
+      x-swagger-router-controller: ProductOrderResource
+    delete:
+      tags:
+      - product-order-resource
+      operationId: deleteProductOrder
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+      x-swagger-router-controller: ProductOrderResource
+    patch:
+      tags:
+      - product-order-resource
+      operationId: partialUpdateProductOrder
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductOrderDTO'
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/ProductOrderDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProductOrderDTO'
+      x-swagger-router-controller: ProductOrderResource
+  /api/product-categories/{id}:
+    get:
+      tags:
+      - product-category-resource
+      operationId: getProductCategory
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProductCategoryDTO'
+      x-swagger-router-controller: ProductCategoryResource
+    put:
+      tags:
+      - product-category-resource
+      operationId: updateProductCategory
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductCategoryDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProductCategoryDTO'
+      x-swagger-router-controller: ProductCategoryResource
+    delete:
+      tags:
+      - product-category-resource
+      operationId: deleteProductCategory
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+      x-swagger-router-controller: ProductCategoryResource
+    patch:
+      tags:
+      - product-category-resource
+      operationId: partialUpdateProductCategory
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductCategoryDTO'
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/ProductCategoryDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProductCategoryDTO'
+      x-swagger-router-controller: ProductCategoryResource
+  /api/customer-details/{id}:
+    get:
+      tags:
+      - customer-details-resource
+      operationId: getCustomerDetails
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CustomerDetailsDTO'
+      x-swagger-router-controller: CustomerDetailsResource
+    put:
+      tags:
+      - customer-details-resource
+      operationId: updateCustomerDetails
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerDetailsDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CustomerDetailsDTO'
+      x-swagger-router-controller: CustomerDetailsResource
+    delete:
+      tags:
+      - customer-details-resource
+      operationId: deleteCustomerDetails
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+      x-swagger-router-controller: CustomerDetailsResource
+    patch:
+      tags:
+      - customer-details-resource
+      operationId: partialUpdateCustomerDetails
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerDetailsDTO'
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/CustomerDetailsDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CustomerDetailsDTO'
+      x-swagger-router-controller: CustomerDetailsResource
+  /api/admin/users:
+    get:
+      tags:
+      - user-resource
+      operationId: getAllUsers
+      parameters:
+      - name: page
+        in: query
+        description: Zero-based page index (0..N)
+        required: false
+        style: form
+        explode: true
+        schema:
+          minimum: 0
+          type: integer
+          default: 0
+      - name: size
+        in: query
+        description: The size of the page to be returned
+        required: false
+        style: form
+        explode: true
+        schema:
+          minimum: 1
+          type: integer
+          default: 20
+      - name: sort
+        in: query
+        description: 'Sorting criteria in the format: property,(asc|desc). Default
+          sort order is ascending. Multiple sort criteria are supported.'
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AdminUserDTO'
+                x-content-type: '*/*'
+      x-swagger-router-controller: UserResource
+    put:
+      tags:
+      - user-resource
+      operationId: updateUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdminUserDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AdminUserDTO'
+      x-swagger-router-controller: UserResource
+    post:
+      tags:
+      - user-resource
+      operationId: createUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdminUserDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/User'
+      x-swagger-router-controller: UserResource
+  /api/shopping-carts:
+    get:
+      tags:
+      - shopping-cart-resource
+      operationId: getAllShoppingCarts
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ShoppingCartDTO'
+                x-content-type: '*/*'
+      x-swagger-router-controller: ShoppingCartResource
+    post:
+      tags:
+      - shopping-cart-resource
+      operationId: createShoppingCart
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShoppingCartDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ShoppingCartDTO'
+      x-swagger-router-controller: ShoppingCartResource
+  /api/register:
+    post:
+      tags:
+      - account-resource
+      operationId: registerAccount
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ManagedUserVM'
+        required: true
+      responses:
+        "201":
+          description: Created
+      x-swagger-router-controller: AccountResource
+  /api/products:
+    get:
+      tags:
+      - product-resource
+      operationId: getAllProducts
+      parameters:
+      - name: page
+        in: query
+        description: Zero-based page index (0..N)
+        required: false
+        style: form
+        explode: true
+        schema:
+          minimum: 0
+          type: integer
+          default: 0
+      - name: size
+        in: query
+        description: The size of the page to be returned
+        required: false
+        style: form
+        explode: true
+        schema:
+          minimum: 1
+          type: integer
+          default: 20
+      - name: sort
+        in: query
+        description: 'Sorting criteria in the format: property,(asc|desc). Default
+          sort order is ascending. Multiple sort criteria are supported.'
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: eagerload
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: boolean
+          default: false
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProductDTO'
+                x-content-type: '*/*'
+      x-swagger-router-controller: ProductResource
+    post:
+      tags:
+      - product-resource
+      operationId: createProduct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProductDTO'
+      x-swagger-router-controller: ProductResource
+  /api/product-orders:
+    get:
+      tags:
+      - product-order-resource
+      operationId: getAllProductOrders
+      parameters:
+      - name: eagerload
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: boolean
+          default: false
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProductOrderDTO'
+                x-content-type: '*/*'
+      x-swagger-router-controller: ProductOrderResource
+    post:
+      tags:
+      - product-order-resource
+      operationId: createProductOrder
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductOrderDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProductOrderDTO'
+      x-swagger-router-controller: ProductOrderResource
+  /api/product-categories:
+    get:
+      tags:
+      - product-category-resource
+      operationId: getAllProductCategories
+      parameters:
+      - name: page
+        in: query
+        description: Zero-based page index (0..N)
+        required: false
+        style: form
+        explode: true
+        schema:
+          minimum: 0
+          type: integer
+          default: 0
+      - name: size
+        in: query
+        description: The size of the page to be returned
+        required: false
+        style: form
+        explode: true
+        schema:
+          minimum: 1
+          type: integer
+          default: 20
+      - name: sort
+        in: query
+        description: 'Sorting criteria in the format: property,(asc|desc). Default
+          sort order is ascending. Multiple sort criteria are supported.'
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProductCategoryDTO'
+                x-content-type: '*/*'
+      x-swagger-router-controller: ProductCategoryResource
+    post:
+      tags:
+      - product-category-resource
+      operationId: createProductCategory
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductCategoryDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProductCategoryDTO'
+      x-swagger-router-controller: ProductCategoryResource
+  /api/customer-details:
+    get:
+      tags:
+      - customer-details-resource
+      operationId: getAllCustomerDetails
+      parameters:
+      - name: page
+        in: query
+        description: Zero-based page index (0..N)
+        required: false
+        style: form
+        explode: true
+        schema:
+          minimum: 0
+          type: integer
+          default: 0
+      - name: size
+        in: query
+        description: The size of the page to be returned
+        required: false
+        style: form
+        explode: true
+        schema:
+          minimum: 1
+          type: integer
+          default: 20
+      - name: sort
+        in: query
+        description: 'Sorting criteria in the format: property,(asc|desc). Default
+          sort order is ascending. Multiple sort criteria are supported.'
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: eagerload
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: boolean
+          default: false
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CustomerDetailsDTO'
+                x-content-type: '*/*'
+      x-swagger-router-controller: CustomerDetailsResource
+    post:
+      tags:
+      - customer-details-resource
+      operationId: createCustomerDetails
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerDetailsDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CustomerDetailsDTO'
+      x-swagger-router-controller: CustomerDetailsResource
+  /api/authenticate:
+    get:
+      tags:
+      - account-resource
+      operationId: isAuthenticated
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+                x-content-type: '*/*'
+      x-swagger-router-controller: AccountResource
+    post:
+      tags:
+      - user-jwt-controller
+      operationId: authorize
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginVM'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/JWTToken'
+      x-swagger-router-controller: UserJwtController
+  /api/account:
+    get:
+      tags:
+      - account-resource
+      operationId: getAccount
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AdminUserDTO'
+      x-swagger-router-controller: AccountResource
+    post:
+      tags:
+      - account-resource
+      operationId: saveAccount
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdminUserDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+      x-swagger-router-controller: AccountResource
+  /api/account/reset-password/init:
+    post:
+      tags:
+      - account-resource
+      operationId: requestPasswordReset
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        "200":
+          description: OK
+      x-swagger-router-controller: AccountResource
+  /api/account/reset-password/finish:
+    post:
+      tags:
+      - account-resource
+      operationId: finishPasswordReset
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KeyAndPasswordVM'
+        required: true
+      responses:
+        "200":
+          description: OK
+      x-swagger-router-controller: AccountResource
+  /api/account/change-password:
+    post:
+      tags:
+      - account-resource
+      operationId: changePassword
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordChangeDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+      x-swagger-router-controller: AccountResource
+  /api/users:
+    get:
+      tags:
+      - public-user-resource
+      operationId: getAllPublicUsers
+      parameters:
+      - name: page
+        in: query
+        description: Zero-based page index (0..N)
+        required: false
+        style: form
+        explode: true
+        schema:
+          minimum: 0
+          type: integer
+          default: 0
+      - name: size
+        in: query
+        description: The size of the page to be returned
+        required: false
+        style: form
+        explode: true
+        schema:
+          minimum: 1
+          type: integer
+          default: 20
+      - name: sort
+        in: query
+        description: 'Sorting criteria in the format: property,(asc|desc). Default
+          sort order is ascending. Multiple sort criteria are supported.'
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserDTO'
+                x-content-type: '*/*'
+      x-swagger-router-controller: PublicUserResource
+  /api/authorities:
+    get:
+      tags:
+      - public-user-resource
+      operationId: getAuthorities
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  type: string
+                x-content-type: '*/*'
+      x-swagger-router-controller: PublicUserResource
+  /api/admin/users/{login}:
+    get:
+      tags:
+      - user-resource
+      operationId: getUser
+      parameters:
+      - name: login
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          pattern: ^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AdminUserDTO'
+      x-swagger-router-controller: UserResource
+    delete:
+      tags:
+      - user-resource
+      operationId: deleteUser
+      parameters:
+      - name: login
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          pattern: ^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$
+          type: string
+      responses:
+        "200":
+          description: OK
+      x-swagger-router-controller: UserResource
+  /api/activate:
+    get:
+      tags:
+      - account-resource
+      operationId: activateAccount
+      parameters:
+      - name: key
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+      x-swagger-router-controller: AccountResource
+components:
+  schemas:
+    CustomerDetailsDTO:
+      required:
+      - addressLine1
+      - city
+      - country
+      - gender
+      - phone
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        gender:
+          type: string
+          enum:
+          - MALE
+          - FEMALE
+          - OTHER
+        phone:
+          type: string
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        city:
+          type: string
+        country:
+          type: string
+        latitude:
+          type: number
+          format: float
+        longitude:
+          type: number
+          format: float
+        geohash:
+          type: string
+        olc:
+          type: string
+        user:
+          $ref: '#/components/schemas/UserDTO'
+      example:
+        country: country
+        gender: MALE
+        phone: phone
+        city: city
+        latitude: 5.962134
+        geohash: geohash
+        olc: olc
+        addressLine1: addressLine1
+        addressLine2: addressLine2
+        id: 1
+        user:
+          id: 2
+          login: login
+        longitude: 5.637377
+    ShoppingCartDTO:
+      required:
+      - paymentMethod
+      - placedDate
+      - status
+      - totalPrice
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        placedDate:
+          type: string
+          format: date-time
+        status:
+          type: string
+          enum:
+          - COMPLETED
+          - PAID
+          - PENDING
+          - CANCELLED
+          - REFUNDED
+        totalPrice:
+          minimum: 0
+          exclusiveMinimum: false
+          type: number
+        paymentMethod:
+          type: string
+          enum:
+          - CREDIT_CARD
+          - IDEAL
+        paymentReference:
+          type: string
+        customerDetails:
+          $ref: '#/components/schemas/CustomerDetailsDTO'
+      example:
+        totalPrice: 0.602745618307040320615897144307382404804229736328125
+        paymentReference: paymentReference
+        paymentMethod: CREDIT_CARD
+        id: 0
+        customerDetails:
+          country: country
+          gender: MALE
+          phone: phone
+          city: city
+          latitude: 5.962134
+          geohash: geohash
+          olc: olc
+          addressLine1: addressLine1
+          addressLine2: addressLine2
+          id: 1
+          user:
+            id: 2
+            login: login
+          longitude: 5.637377
+        placedDate: 2000-01-23T04:56:07.000+00:00
+        status: COMPLETED
+    UserDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        login:
+          type: string
+      example:
+        id: 2
+        login: login
+    ProductCategoryDTO:
+      required:
+      - name
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        description:
+          type: string
+      example:
+        name: name
+        description: description
+        id: 1
+    ProductDTO:
+      required:
+      - ean
+      - name
+      - price
+      - productSize
+      - sku
+      - upc
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        sku:
+          type: string
+        upc:
+          type: string
+        ean:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        price:
+          minimum: 0
+          exclusiveMinimum: false
+          type: number
+        productSize:
+          type: string
+          enum:
+          - S
+          - M
+          - L
+          - XL
+          - XXL
+        colors:
+          pattern: ^([a-z]+,)*[a-z]+$
+          type: string
+        image:
+          type: array
+          items:
+            type: string
+            format: byte
+        imageContentType:
+          type: string
+        imageSha1:
+          maxLength: 40
+          minLength: 40
+          pattern: '[a-f0-9]{40}'
+          type: string
+        imageCdnUrl:
+          type: string
+        thumbnailSha1:
+          maxLength: 40
+          minLength: 40
+          pattern: '[a-f0-9]{40}'
+          type: string
+        thumbnailCdnUrl:
+          type: string
+        productCategory:
+          $ref: '#/components/schemas/ProductCategoryDTO'
+      description: Product sold by the Online store
+      example:
+        image:
+        - ""
+        - ""
+        imageCdnUrl: imageCdnUrl
+        productSize: S
+        imageSha1: imageSha1
+        upc: upc
+        description: description
+        colors: colors
+        productCategory:
+          name: name
+          description: description
+          id: 1
+        ean: ean
+        thumbnailCdnUrl: thumbnailCdnUrl
+        price: 0.602745618307040320615897144307382404804229736328125
+        imageContentType: imageContentType
+        name: name
+        thumbnailSha1: thumbnailSha1
+        id: 0
+        sku: sku
+    ProductOrderDTO:
+      required:
+      - quantity
+      - totalPrice
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        quantity:
+          minimum: 0
+          type: integer
+          format: int32
+        totalPrice:
+          minimum: 0
+          exclusiveMinimum: false
+          type: number
+        product:
+          $ref: '#/components/schemas/ProductDTO'
+        cart:
+          $ref: '#/components/schemas/ShoppingCartDTO'
+      example:
+        product:
+          image:
+          - ""
+          - ""
+          imageCdnUrl: imageCdnUrl
+          productSize: S
+          imageSha1: imageSha1
+          upc: upc
+          description: description
+          colors: colors
+          productCategory:
+            name: name
+            description: description
+            id: 1
+          ean: ean
+          thumbnailCdnUrl: thumbnailCdnUrl
+          price: 0.602745618307040320615897144307382404804229736328125
+          imageContentType: imageContentType
+          name: name
+          thumbnailSha1: thumbnailSha1
+          id: 0
+          sku: sku
+        quantity: 0
+        totalPrice: 0.146581298050294517310021547018550336360931396484375
+        id: 0
+        cart:
+          totalPrice: 0.602745618307040320615897144307382404804229736328125
+          paymentReference: paymentReference
+          paymentMethod: CREDIT_CARD
+          id: 0
+          customerDetails:
+            country: country
+            gender: MALE
+            phone: phone
+            city: city
+            latitude: 5.962134
+            geohash: geohash
+            olc: olc
+            addressLine1: addressLine1
+            addressLine2: addressLine2
+            id: 1
+            user:
+              id: 2
+              login: login
+            longitude: 5.637377
+          placedDate: 2000-01-23T04:56:07.000+00:00
+          status: COMPLETED
+    AdminUserDTO:
+      required:
+      - login
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        login:
+          maxLength: 50
+          minLength: 1
+          pattern: ^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$
+          type: string
+        firstName:
+          maxLength: 50
+          minLength: 0
+          type: string
+        lastName:
+          maxLength: 50
+          minLength: 0
+          type: string
+        email:
+          maxLength: 254
+          minLength: 5
+          type: string
+        imageUrl:
+          maxLength: 256
+          minLength: 0
+          type: string
+        activated:
+          type: boolean
+        langKey:
+          maxLength: 10
+          minLength: 2
+          type: string
+        createdBy:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
+        lastModifiedBy:
+          type: string
+        lastModifiedDate:
+          type: string
+          format: date-time
+        authorities:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+      example:
+        lastName: lastName
+        lastModifiedDate: 2000-01-23T04:56:07.000+00:00
+        lastModifiedBy: lastModifiedBy
+        login: login
+        authorities:
+        - authorities
+        - authorities
+        firstName: firstName
+        createdDate: 2000-01-23T04:56:07.000+00:00
+        langKey: langKey
+        createdBy: createdBy
+        imageUrl: imageUrl
+        id: 0
+        email: email
+        activated: true
+    ManagedUserVM:
+      required:
+      - login
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        login:
+          maxLength: 50
+          minLength: 1
+          pattern: ^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$
+          type: string
+        firstName:
+          maxLength: 50
+          minLength: 0
+          type: string
+        lastName:
+          maxLength: 50
+          minLength: 0
+          type: string
+        email:
+          maxLength: 254
+          minLength: 5
+          type: string
+        imageUrl:
+          maxLength: 256
+          minLength: 0
+          type: string
+        activated:
+          type: boolean
+        langKey:
+          maxLength: 10
+          minLength: 2
+          type: string
+        createdBy:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
+        lastModifiedBy:
+          type: string
+        lastModifiedDate:
+          type: string
+          format: date-time
+        authorities:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        password:
+          maxLength: 100
+          minLength: 4
+          type: string
+    LoginVM:
+      required:
+      - password
+      - username
+      type: object
+      properties:
+        username:
+          maxLength: 50
+          minLength: 1
+          type: string
+        password:
+          maxLength: 100
+          minLength: 4
+          type: string
+        rememberMe:
+          type: boolean
+    JWTToken:
+      type: object
+      properties:
+        id_token:
+          type: string
+      example:
+        id_token: id_token
+    User:
+      required:
+      - activated
+      - login
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        login:
+          maxLength: 50
+          minLength: 1
+          pattern: ^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$
+          type: string
+        firstName:
+          maxLength: 50
+          minLength: 0
+          type: string
+        lastName:
+          maxLength: 50
+          minLength: 0
+          type: string
+        email:
+          maxLength: 254
+          minLength: 5
+          type: string
+        activated:
+          type: boolean
+        langKey:
+          maxLength: 10
+          minLength: 2
+          type: string
+        imageUrl:
+          maxLength: 256
+          minLength: 0
+          type: string
+        resetDate:
+          type: string
+          format: date-time
+      example:
+        firstName: firstName
+        lastName: lastName
+        langKey: langKey
+        resetDate: 2000-01-23T04:56:07.000+00:00
+        imageUrl: imageUrl
+        id: 0
+        login: login
+        email: email
+        activated: true
+    KeyAndPasswordVM:
+      type: object
+      properties:
+        key:
+          type: string
+        newPassword:
+          type: string
+    PasswordChangeDTO:
+      type: object
+      properties:
+        currentPassword:
+          type: string
+        newPassword:
+          type: string

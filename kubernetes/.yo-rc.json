@@ -1,0 +1,17 @@
+{
+  "generator-jhipster": {
+    "appsFolders": ["gateway", "invoice", "notification", "productorder"],
+    "clusteredDbApps": ["notification"],
+    "directoryPath": "../",
+    "dockerPushCommand": "docker push",
+    "dockerRepositoryName": "koukika",
+    "ingressDomain": "",
+    "istio": false,
+    "jwtSecretKey": "Y2FjMTIzZTQzN2NkMzY0NzNkMjFjZDQ2YmFhZDRiYTAzZGY1NGFiZTIxZTA5Nzk3YzcwM2QxNTVlNDFmODgxNjEwYjU2YmUxMDU2MzBmNThjZWFiMWI3YjRhMDI5ODJjOWE1Mg==",
+    "kubernetesNamespace": "store",
+    "kubernetesServiceType": "LoadBalancer",
+    "kubernetesUseDynamicStorage": false,
+    "monitoring": "prometheus",
+    "serviceDiscoveryType": "eureka"
+  }
+}

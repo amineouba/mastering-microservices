@@ -1,0 +1,196 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-shopping-cart-heading"
+        data-cy="ShoppingCartCreateUpdateHeading"
+        jhiTranslate="storeApp.shoppingCart.home.createOrEditLabel"
+      >
+        Create or edit a Shopping Cart
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="storeApp.shoppingCart.placedDate" for="field_placedDate">Placed Date</label>
+          <div class="d-flex">
+            <input
+              id="field_placedDate"
+              data-cy="placedDate"
+              type="datetime-local"
+              class="form-control"
+              name="placedDate"
+              formControlName="placedDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div *ngIf="editForm.get('placedDate')!.invalid && (editForm.get('placedDate')!.dirty || editForm.get('placedDate')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('placedDate')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('placedDate')?.errors?.datetimelocal"
+              jhiTranslate="entity.validation.datetimelocal"
+            >
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="storeApp.shoppingCart.status" for="field_status">Status</label>
+          <select class="form-control" name="status" formControlName="status" id="field_status" data-cy="status">
+            <option [ngValue]="null">{{ 'storeApp.OrderStatus.null' | translate }}</option>
+            <option *ngFor="let orderStatus of orderStatusValues" [value]="orderStatus">
+              {{ 'storeApp.OrderStatus.' + orderStatus | translate }}
+            </option>
+          </select>
+          <div *ngIf="editForm.get('status')!.invalid && (editForm.get('status')!.dirty || editForm.get('status')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('status')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="storeApp.shoppingCart.totalPrice" for="field_totalPrice">Total Price</label>
+          <input
+            type="number"
+            class="form-control"
+            name="totalPrice"
+            id="field_totalPrice"
+            data-cy="totalPrice"
+            formControlName="totalPrice"
+          />
+          <div *ngIf="editForm.get('totalPrice')!.invalid && (editForm.get('totalPrice')!.dirty || editForm.get('totalPrice')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('totalPrice')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('totalPrice')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('totalPrice')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="storeApp.shoppingCart.paymentMethod" for="field_paymentMethod">Payment Method</label>
+          <select
+            class="form-control"
+            name="paymentMethod"
+            formControlName="paymentMethod"
+            id="field_paymentMethod"
+            data-cy="paymentMethod"
+          >
+            <option [ngValue]="null">{{ 'storeApp.PaymentMethod.null' | translate }}</option>
+            <option *ngFor="let paymentMethod of paymentMethodValues" [value]="paymentMethod">
+              {{ 'storeApp.PaymentMethod.' + paymentMethod | translate }}
+            </option>
+          </select>
+          <div
+            *ngIf="
+              editForm.get('paymentMethod')!.invalid && (editForm.get('paymentMethod')!.dirty || editForm.get('paymentMethod')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('paymentMethod')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="storeApp.shoppingCart.paymentReference" for="field_paymentReference"
+            >Payment Reference</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="paymentReference"
+            id="field_paymentReference"
+            data-cy="paymentReference"
+            formControlName="paymentReference"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="storeApp.shoppingCart.customerDetails" for="field_customerDetails"
+            >Customer Details</label
+          >
+          <select
+            class="form-control"
+            id="field_customerDetails"
+            data-cy="customerDetails"
+            name="customerDetails"
+            formControlName="customerDetails"
+            [compareWith]="compareCustomerDetails"
+          >
+            <option *ngIf="editForm.get(['customerDetails'])!.value == null" [ngValue]="null" selected></option>
+            <option [ngValue]="customerDetailsOption" *ngFor="let customerDetailsOption of customerDetailsSharedCollection">
+              {{ customerDetailsOption.id }}
+            </option>
+          </select>
+        </div>
+        <div
+          *ngIf="
+            editForm.get(['customerDetails'])!.invalid &&
+            (editForm.get(['customerDetails'])!.dirty || editForm.get(['customerDetails'])!.touched)
+          "
+        >
+          <small
+            class="form-text text-danger"
+            *ngIf="editForm.get(['customerDetails'])?.errors?.required"
+            jhiTranslate="entity.validation.required"
+          >
+            This field is required.
+          </small>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

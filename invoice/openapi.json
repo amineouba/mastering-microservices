@@ -1,0 +1,1 @@
+{"openapi":"3.0.1","info":{"title":"Invoice API","description":"Invoice API documentation","termsOfService":"","contact":{"name":"","url":"","email":""},"license":{"name":"unlicensed","url":""},"version":"0.0.1"},"servers":[{"url":"http://localhost:8082","description":"Generated server url"}],"paths":{},"components":{}}

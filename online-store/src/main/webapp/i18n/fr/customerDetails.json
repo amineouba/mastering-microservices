@@ -1,0 +1,35 @@
+{
+  "storeApp": {
+    "customerDetails": {
+      "home": {
+        "title": "CustomerDetails",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Customer Details",
+        "createOrEditLabel": "Créer ou éditer un Customer Details",
+        "notFound": "Aucun Customer Details trouvé"
+      },
+      "created": "Un nouveau Customer Details a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Customer Details avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Customer Details avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Customer Details {{ id }} ?"
+      },
+      "detail": {
+        "title": "Customer Details"
+      },
+      "id": "ID",
+      "gender": "Gender",
+      "phone": "Phone",
+      "addressLine1": "Address Line 1",
+      "addressLine2": "Address Line 2",
+      "city": "City",
+      "country": "Country",
+      "latitude": "Latitude",
+      "longitude": "Longitude",
+      "geohash": "Geohash",
+      "olc": "Olc",
+      "user": "User",
+      "cart": "Cart"
+    }
+  }
+}

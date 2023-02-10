@@ -1,0 +1,29 @@
+{
+  "storeApp": {
+    "product": {
+      "home": {
+        "title": "Products",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Maak een nieuwe Product",
+        "createOrEditLabel": "Maak of wijzig een Product",
+        "notFound": "No Products found"
+      },
+      "created": "A new Product is created with identifier {{ param }}",
+      "updated": "A Product is updated with identifier {{ param }}",
+      "deleted": "A Product is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Bent u zeker dat u Product {{ id }} wilt verwijderen?"
+      },
+      "detail": {
+        "title": "Product"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "price": "Price",
+      "productSize": "Product Size",
+      "image": "Image",
+      "productCategory": "Product Category"
+    }
+  }
+}

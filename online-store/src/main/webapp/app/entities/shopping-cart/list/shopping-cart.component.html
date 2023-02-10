@@ -1,0 +1,127 @@
+<div>
+  <h2 id="page-heading" data-cy="ShoppingCartHeading">
+    <span jhiTranslate="storeApp.shoppingCart.home.title">ShoppingCarts</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="storeApp.shoppingCart.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-shopping-cart"
+        [routerLink]="['/shopping-cart/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="storeApp.shoppingCart.home.createLabel"> Créer un nouveau Shopping Cart </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="shoppingCarts?.length === 0">
+    <span jhiTranslate="storeApp.shoppingCart.home.notFound">Aucun Shopping Cart trouvé</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="shoppingCarts && shoppingCarts.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="placedDate">
+            <div class="d-flex">
+              <span jhiTranslate="storeApp.shoppingCart.placedDate">Placed Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="status">
+            <div class="d-flex">
+              <span jhiTranslate="storeApp.shoppingCart.status">Status</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="totalPrice">
+            <div class="d-flex">
+              <span jhiTranslate="storeApp.shoppingCart.totalPrice">Total Price</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="paymentMethod">
+            <div class="d-flex">
+              <span jhiTranslate="storeApp.shoppingCart.paymentMethod">Payment Method</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="paymentReference">
+            <div class="d-flex">
+              <span jhiTranslate="storeApp.shoppingCart.paymentReference">Payment Reference</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="customerDetails.id">
+            <div class="d-flex">
+              <span jhiTranslate="storeApp.shoppingCart.customerDetails">Customer Details</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let shoppingCart of shoppingCarts; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/shopping-cart', shoppingCart.id, 'view']">{{ shoppingCart.id }}</a>
+          </td>
+          <td>{{ shoppingCart.placedDate | formatMediumDatetime }}</td>
+          <td jhiTranslate="{{ 'storeApp.OrderStatus.' + shoppingCart.status }}">{{ shoppingCart.status }}</td>
+          <td>{{ shoppingCart.totalPrice }}</td>
+          <td jhiTranslate="{{ 'storeApp.PaymentMethod.' + shoppingCart.paymentMethod }}">{{ shoppingCart.paymentMethod }}</td>
+          <td>{{ shoppingCart.paymentReference }}</td>
+          <td>
+            <div *ngIf="shoppingCart.customerDetails">
+              <a [routerLink]="['/customer-details', shoppingCart.customerDetails.id, 'view']">{{ shoppingCart.customerDetails.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/shopping-cart', shoppingCart.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/shopping-cart', shoppingCart.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+              </button>
+
+              <button type="submit" (click)="delete(shoppingCart)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

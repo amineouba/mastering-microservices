@@ -1,0 +1,119 @@
+// From https://github.com/jhipster/jdl-samples/blob/main/e-commerce-monolith.jdl
+
+// SHA1 is 160 bits-long (20 bytes)
+SHA_LEN = 40
+IMAGE_MAX_BYTES = 5000000
+
+/** Product sold by the Online store */
+entity Product {
+    // SKU of the product https://en.wikipedia.org/wiki/Stock_keeping_unit : TODO pattern
+    sku String required
+    // UPC of the product https://en.wikipedia.org/wiki/Universal_Product_Code : TODO pattern
+    upc String required 
+    // EAN of the product https://en.wikipedia.org/wiki/International_Article_Number : TODO pattern
+    ean String required 
+
+    name String required
+    description TextBlob
+
+    price BigDecimal required min(0)
+    productSize ProductSize required
+    colors String pattern(/^([a-z]+,)*[a-z]+$/) 
+
+    // For uploading the image
+    image ImageBlob maxbytes(IMAGE_MAX_BYTES)
+    // For caching with HTTP header Etag and If-None-Match
+    imageSha1 String minlength(SHA_LEN) maxlength(SHA_LEN) pattern(/[a-f0-9]{40}/)
+    // For the content delivery network  TODO pattern
+    imageCdnUrl String
+    // For caching with HTTP header Etag and If-None-Match
+    thumbnailSha1 String minlength(SHA_LEN) maxlength(SHA_LEN) pattern(/[a-f0-9]{40}/)
+    // For the content delivery network  TODO pattern
+    thumbnailCdnUrl String
+}
+
+enum ProductSize {
+    S, M, L, XL, XXL
+}
+
+entity ProductCategory {
+    name String required
+    description String
+}
+
+entity CustomerDetails {
+    gender Gender required
+    phone String required
+    addressLine1 String required
+    addressLine2 String
+    city String required
+    country String required
+
+    // coordinates (latitude and longitude) are found by the backend using external geocoding service (Mapbox, Google Maps ...)
+    latitude Float
+    // coordinates (latitude and longitude) are found by the backend using external geocoding service (Mapbox, Google Maps ...)
+    longitude Float
+    // geohash is computed from the coordinates. see https://en.wikipedia.org/wiki/Geohash  TODO pattern
+    geohash String
+    // olc (aka plus code) is computed from the coordinates. see https://en.wikipedia.org/wiki/Open_Location_Code TODO pattern
+    olc String
+}
+
+enum Gender {
+    MALE, FEMALE, OTHER
+}
+
+entity ShoppingCart {
+    placedDate Instant required
+    status OrderStatus required
+    totalPrice BigDecimal required min(0)
+    paymentMethod PaymentMethod required
+    paymentReference String
+}
+
+enum OrderStatus {
+    COMPLETED, PAID, PENDING, CANCELLED, REFUNDED
+}
+
+enum PaymentMethod {
+    CREDIT_CARD(card), IDEAL(ideal)
+}
+
+entity ProductOrder {
+    quantity Integer required min(0)
+    totalPrice BigDecimal required min(0)
+}
+
+relationship OneToOne {
+    CustomerDetails{user(login) required} to User
+}
+
+relationship ManyToOne {
+    ProductOrder{product(name) required} to Product
+}
+
+relationship OneToMany {
+    CustomerDetails{cart} to ShoppingCart{customerDetails required}, 
+    ShoppingCart{order} to ProductOrder{cart required}, 
+    ProductCategory{product} to Product{productCategory(name) required}
+}
+
+// Set pagination options (pagination, pager, infinite-scroll)
+paginate CustomerDetails, ProductCategory with pagination
+paginate Product with infinite-scroll
+
+// Use Data Transfert Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+// service all with serviceImpl
+service * with serviceClass
+
+// Set an angular suffix
+//angularSuffix * with onlineshop
+
+// Set search
+//search * with elasticsearch
+
+//Set filtering
+//filter *
