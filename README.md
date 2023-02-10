@@ -8,7 +8,7 @@
 ## Members of the homework group
 
 - **Firstname**: Meriem , **Lastname**: Ouadih , **Github ID**: ouadih1630 , **Email**: ouadihmeri@gmail.com
-- **Firstname**: Amine , **Lastname**: Oubaamrane , **Github ID**: amineouba , **Email**: amine.oubaamrane@grenoble-inp.org
+- **Firstname**: Amine , **Lastname**: Oubaamrane , **Github ID**: amineouba , **Email**: oubaamrane@gmail.com
 - **Firstname**: Hiba , **Lastname**: Touderti , **Github ID**: ToudertiHiba , **Email**: hibatouderti@gmail.com
 
 ## Deployment of Microservices with JHipster on GCP
