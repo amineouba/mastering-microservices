@@ -48,4 +48,4 @@ We can also see the cpu usage increasing on the Grafana dashboard.
 
 ![screenshot](screenshots/dashboard_after.png)
 
-You can find the Gatling reports here : 
+You can find the Gatling reports here : https://github.com/amineouba/mastering-microservices/tree/main/gatling/results
